@@ -1,7 +1,7 @@
 # Проект «Киноман» [![Check status][check-image]][check-url]
 
 * Студент: [Алексей Калашников](https://up.htmlacademy.ru/ecmascript/13/user/277887).
-* Наставник: `Неизвестно`.
+* Наставник: [Алексей Калашников](https://up.htmlacademy.ru/ecmascript/13/user/277887).
 
 ---
 
