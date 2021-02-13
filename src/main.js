@@ -9,6 +9,9 @@ import {createFilmCardTemplate} from "./view/filmCardView.js";
 import {createPopupTemplate} from "./view/popupView.js";
 import {createShowMoreButtonTemplate} from "./view/showMoreButtonView.js";
 import {createFooterStatsTemplate} from "./view/footerStatsView.js";
+import {generateFilm} from "./mock/film.js";
+
+const films = new Array(20).fill().map(generateFilm);
 
 const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
