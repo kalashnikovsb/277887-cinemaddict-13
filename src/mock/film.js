@@ -44,8 +44,9 @@ const getRandomSubArray = (array) => {
 };
 
 
-const generateRating = (min, max) => {
-  let result = getRandomInteger(min, max);
+const generateRating = () => {
+  let result = getRandomInteger(0, 10);
+  // Рейтинг дробный от 0 до 10
   return result / 10;
 };
 
@@ -74,6 +75,7 @@ const generateCommentsList = (min, max) => {
 
 const generateDate = () => {
   let now = dayjs();
+  // Прибавляю дни в радиусе 1 года, так же прибавляю миллисекунды в радиусе 1 дня
   now = now
     .add(getRandomInteger(-365, 365), `day`)
     .add(getRandomInteger(-86400000, 86400000), `millisecond`);
@@ -91,7 +93,7 @@ export const generateFilm = () => {
     filmInfo: {
       title: TITLES[filmIndex],
       alternativeTitle: ARTERNATIVE_TITLES[filmIndex],
-      totalRating: generateRating(0, 100),
+      totalRating: generateRating(),
       poster: POSTERS[filmIndex],
       ageRating: getRandomInteger(0, 18),
       director: getRandomArrayElement(DIRECTORS),

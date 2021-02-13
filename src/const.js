@@ -78,7 +78,17 @@ const ACTORS = [
   `Brad Pitt`,
   `Angelina Jolie`,
   `Leonardo DiCaprio`,
-  `Tom Cruise`
+  `Tom Cruise`,
+  `Lillian Adams`,
+  `Jaime Andrews`,
+  `Dimitra Arliss`,
+  `Samantha Sloyan`,
+  `Hiroki Aiba`,
+  `Ryo Ryusei`,
+  `Yutaka Takenouchi`,
+  `Jynine James`,
+  `Rachel Rice`,
+  `Lisa Palfrey`,
 ];
 
 const COUNTRIES = [
