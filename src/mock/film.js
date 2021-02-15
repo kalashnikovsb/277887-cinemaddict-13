@@ -32,7 +32,7 @@ const getRandomArrayElement = (array) => {
 
 
 // Возвращает рандомный не пустой подмассив
-const getRandomSubArray = (array) => {
+const getRandomNonEmptySubArray = (array) => {
   const maxCount = array.length - 1;
   let count = getRandomInteger(1, maxCount);
   let result = [];
@@ -55,7 +55,7 @@ const generateCommentItem = () => {
   return {
     id: generateId(),
     author: getRandomArrayElement(AUTHORS),
-    comment: getRandomSubArray(DESCRIPTIONS).join(` `),
+    comment: getRandomNonEmptySubArray(DESCRIPTIONS).join(` `),
     date: generateDate(),
     emotion: getRandomArrayElement(EMOTIONS)
   };
@@ -75,11 +75,11 @@ const generateCommentsList = (min, max) => {
 
 const generateDate = () => {
   let now = dayjs();
-  // Прибавляю дни в радиусе 1 года, так же прибавляю миллисекунды в радиусе 1 дня
-  now = now
-    .add(getRandomInteger(-365, 365), `day`)
+  // Прибавляю дни и миллисекунды в радиусе 1 недели (дни + миллисекунды)
+  const result = now
+    .add(getRandomInteger(-6, 6), `day`)
     .add(getRandomInteger(-86400000, 86400000), `millisecond`);
-  return now.format(`YYYY-MM-DDTHH:mm:ss.SSSZ`);
+  return result.toDate();
 };
 
 
@@ -97,15 +97,15 @@ export const generateFilm = () => {
       poster: POSTERS[filmIndex],
       ageRating: getRandomInteger(0, 18),
       director: getRandomArrayElement(DIRECTORS),
-      writers: getRandomSubArray(WRITERS),
-      actors: getRandomSubArray(ACTORS),
+      writers: getRandomNonEmptySubArray(WRITERS),
+      actors: getRandomNonEmptySubArray(ACTORS),
       release: {
         date: generateDate(),
         releaseCountry: getRandomArrayElement(COUNTRIES)
       },
       runtime: getRandomInteger(40, 120),
-      genre: Array.from(new Set(getRandomSubArray(GENRES))),
-      description: getRandomSubArray(DESCRIPTIONS).join(` `)
+      genre: Array.from(new Set(getRandomNonEmptySubArray(GENRES))),
+      description: getRandomNonEmptySubArray(DESCRIPTIONS).join(` `)
     },
     userDetails: {
       watchlist: Boolean(getRandomInteger(0, 1)),

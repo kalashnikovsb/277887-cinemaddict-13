@@ -12,6 +12,7 @@ import {createFooterStatsTemplate} from "./view/footerStatsView.js";
 import {generateFilm} from "./mock/film.js";
 
 const films = new Array(20).fill().map(generateFilm);
+console.log(films);
 
 const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
